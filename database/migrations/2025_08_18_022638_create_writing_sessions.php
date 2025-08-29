@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('writing_sessions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // FK → users.id
             $table->string('project_name');
             $table->integer('wordcount');
             $table->integer('minutes_spent');
-            $table->timestamp('time_finished')->useCurrent();
-            $table->string('user_id');
+            $table->dateTime('time_finished');
             $table->timestamps();
         });
     }

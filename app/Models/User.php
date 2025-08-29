@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function writingSessions(): HasMany
+    {
+        return $this->hasMany(WritingSession::class); // users.id -> writing_sessions.user_id
+    }
 }

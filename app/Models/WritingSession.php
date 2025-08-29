@@ -16,4 +16,10 @@ class WritingSession extends Model
         'time_finished',
         'user_id',
     ];
+
+    // Designates the FK (1-to-many user to WS)
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class); // inverse side
+    }
 }
